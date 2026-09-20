@@ -1,0 +1,46 @@
+MIT License
+
+Copyright (c) 2026 何赐超 (hcc) · 林香玉 (lxy)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+────────────────────────────────────────────────────────────────────────
+
+附注（以下内容不属于 MIT 授权范围）
+
+1. 数据与清单。
+   `font-license-audit/assets/licensed-fonts.json` 在本仓库中是**示例数据**（占位条目 + 一条
+   来自公开字体文件内部记录的「改名冒用」范例），**不含任何单位的真实采购信息**；
+   使用时请替换为其自身的清单。清单只记录"买了哪些、能用在哪"，
+   **不构成授权凭证**。`ad-compliance-check/references/` 下的三份清单
+   （合规红线、忽略清单、替代词表）是审查口径与模板，请按自身情况调整后使用。
+
+2. 不附带字体文件。
+   本仓库**不包含任何字体文件**。方正、汉仪等商业字体的使用需由使用者自行
+   取得合法授权；仓库中的清单只记录"买了哪些、能用在哪"，不构成授权凭证。
+   最终的授权结论**以字体权利方出具的授权书为准**。
+
+3. 商标与品牌。
+   「中公」「offcn」等名称、标识归其权利人所有。
+   仓库中出现的品牌名与班型名仅用于说明审查口径与记录实战案例，
+   不代表任何授权、合作或背书关系。
+
+4. 合规结论的性质。
+   本仓库提供的是**风险筛查工具**，输出为风险定位与替换建议，
+   不构成法律意见，也不能替代法务审核。

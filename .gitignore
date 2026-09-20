@@ -1,0 +1,47 @@
+# ── Python ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ── 运行产物：广告法线 ──────────────────────────────────────
+# 交付物是「标注图 + 结论文档」，都是审查时一次性生成的，不进库。
+# ⚠️ 一律按**文件名**精确排除，不要写 *.png / *.json 这类整类规则 ——
+#    font-license-audit/assets/ 下的字体清单 json 是必须入库的核心文件，
+#    .gitignore 一旦写宽了会把它一起吞掉，而且 git add -A 不报错。
+annotate_out/
+boxes*.json
+layers.json
+spec.json
+*_标注.png
+*_标注.jpg
+
+# ── 运行产物：字体线 ───────────────────────────────────────
+work/
+spec_bw.json
+extracted*.json
+glyph*.json
+bw_samples.png
+字体版权报告*.md
+coverage.json
+fonts.json
+
+# ── 测试 / 临时 ────────────────────────────────────────────
+poster*.png
+sample*.pdf
+tmp/
+*.tmp
+*~
+
+# ── 编辑器 / 系统 ──────────────────────────────────────────
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 敏感信息（占位，按需填本地值）──────────────────────────
+.env
+*.local.json

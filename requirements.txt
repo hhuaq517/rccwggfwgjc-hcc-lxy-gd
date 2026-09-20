@@ -1,0 +1,24 @@
+# 两条审查线的依赖几乎不重叠，按需安装即可。
+# 只走「源文件提取字体名」这条路（PSD / AI / PDF / PPTX / DOCX / XLSX）时，
+# 除 Python 3 外**什么都不用装**。
+
+# ── 广告法线（ad-compliance-check）────────────────────────────
+Pillow>=9.0,<13        # 读图、画标注框（红/橙/黄框 + 编号徽标 + 图例条）、渲染字形
+numpy>=1.21            # build_boxes.py 的墨迹投影与行拆框（像素级运算）
+
+# ── 字体线（font-license-audit）─────────────────────────────
+# Pillow 同上：字形比对要把候选字体渲染成像素再与成图比对；
+#             extract_fonts.py 也用它读 PNG 的 tEXt / EXIF 元数据
+psd-tools>=1.9         # 【可选】仅两处用：psd_layers.py 枚举图层、
+                       # extract_fonts.py 拆解 PSD 里的智能对象（内嵌 logo / 素材图）
+                       # 不装也能跑：脚本会自动跳过并记一条备注，其余结论不受影响。
+                       # 但审 PSD 时**建议装**，否则「智能对象内部」永远是盲区。
+
+# ── 说明 ───────────────────────────────────────────────────
+# font-license-audit 的其余 7 个脚本**只用标准库**
+# （os / sys / re / json / zipfile / struct / argparse / io / glob / unicodedata / tempfile）。
+# 换句话说：只想跑源文件提取 + 清单比对，装个 Python 就能用。
+#
+# 本机核对方式（Python 的实际导入名与包名不同，别只信 `pip list`）：
+#   python -c "import PIL, numpy; print(PIL.__version__, numpy.__version__)"
+#   python -c "import psd_tools; print(psd_tools.__version__)"

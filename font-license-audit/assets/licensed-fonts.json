@@ -1,0 +1,79 @@
+{
+  "_说明": "《已购字体清单》模板 —— 仓内这份是**示例数据**，请整体替换为本单位的真实清单再用于审查。aliases 里的名字应当来自本机字体文件的 name 表实测值（用 scripts/font_info.py 读），不要靠记忆猜 —— 猜错的后果是合规字体被误判成「不在清单内」。",
+  "_示例数据说明": "下面 fonts / _excluded 里的条目都是**示例**（含示意性的授权条款），仅用于演示字段怎么填，不代表任何真实采购关系或排除结论。第一次使用前请用自己的清单覆盖整个 fonts 数组；_excluded 可保留为填写范例，也可清空。",
+  "company": "（填公司全称）",
+  "updated": "2026-09-19",
+  "_字体目录": {
+    "说明": "运行时可追加的字体搜索目录。默认已扫描：Windows 的 %WINDIR%\\Fonts 与 %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts；macOS/Linux 的 /Library/Fonts、/usr/share/fonts 等。",
+    "追加方式": "① 各脚本 --font-dir 参数（可重复）；② 环境变量 FONT_LICENSE_AUDIT_FONT_DIRS（多个目录用系统路径分隔符隔开，Windows 用 ; ）",
+    "定位逻辑": "font_file 只存文件名；先在系统/用户字体目录里按文件名找，找不到再按 _字体目录 里的顺序找。换电脑后先跑 scripts/check_fonts.py 体检，它会列出缺哪几款。"
+  },
+  "_字段说明": {
+    "family": "标准名（中文优先），用于人工核对与报告展示",
+    "aliases": "别名：中文名变体、family 名、PostScript 名（含/不含 --GB1-0 后缀）、文件名主干。越多越不容易漏匹配",
+    "vendor": "字库厂商 / 版权方",
+    "font_file": "字体文件名（**只写文件名，不写路径**）。第二层字形比对运行时会自动在系统字体目录与用户字体目录里按文件名查找，换电脑后只要装了同名字体即可用，不受安装位置影响。旧版写成绝对路径也能兼容",
+    "license.media": "授权媒体。若本批素材为「线上线下全平台」投放，则要求线上+线下同时覆盖——写「全媒体」即满足；只写单侧（仅网络 / 仅印刷）会降 ⚠️",
+    "license.subject": "授权主体",
+    "license.valid_until": "到期日 YYYY-MM-DD；写「长期」表示未见期限",
+    "license.note": "限制条款摘要（只作提示，不降档）"
+  },
+  "_授权依据": "填本单位与字库厂商的授权关系（合同/订单号、授权书出具方与日期）。**清单只是「买了哪些、能用在哪」的记录，不构成授权凭证** —— 最终的授权结论永远以字体权利方出具的授权书为准。",
+  "_投放口径": "默认按「线上线下全平台」口径审查（audit.py 的 --media 默认值即此口径，不再逐次询问投放在哪）。媒体判定为双侧：要求授权同时覆盖线上与线下；「全媒体 / 全平台 / 线上线下」视为两侧通吃，只写单侧（如仅网络、仅印刷）会降 ⚠️ 并在报告中注明缺的是哪一侧。若某批素材只投某一侧，用 --media 覆盖。",
+  "_排除清单说明": "以下字体经核查不在授权范围内、或来源存疑（改名冒用等），明确不得用于物料。审计时会单独列为「已知排除（高风险）」，与普通的「不在清单内」区分开——前者是有据可查的禁用项，后者只是清单里没登记。",
+  "_excluded": [
+    {
+      "label": "ZCOOL Addict Italic 01 / 02",
+      "names": ["ZCOOL Addict Italic 01", "ZCOOL Addict Italic 02", "ZCOOL Addict Italic", "ZCOOLAddictItalic01", "ZCOOLAddictItalic02", "ZCOOLAddictItalic"],
+      "recorded_as": "ZCOOL Addict Italic（标称站酷字体）",
+      "actual_font": "Lucida Calligraphy Italic",
+      "vendor": "Bigelow & Holmes Inc. / Type Solutions, Inc.",
+      "reason": "改名冒用。文件内部原始记录未被改动的那部分是：「©1991 Bigelow & Holmes. All Rights Reserved.」「Lucida is a registered trademark of Bigelow & Holmes Inc.」，原名 Lucida Calligraphy、Version 1.67。改的只是 Windows 英文名字，Mac 记录还是原样。Lucida 是商业字体，Windows/Office 自带不等于可商用，更不在站酷免费商用范围内。此类文件同时踩「著作者署名/商标」与「来源不明」两条，风险高于单用未授权字体。",
+      "status": "已从可用列表中移除。**仅清单层面排除，本机字体文件未卸载** —— 设计软件的字体列表里仍能选到它们，注意不要误用。",
+      "files": ["ZCOOL Addict Italic 01.ttf", "ZCOOL Addict Italic 02.ttf"],
+      "registry_keys": [
+        "HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts :: ZCOOL Addict Italic 01 (TrueType)",
+        "HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts :: ZCOOL Addict Italic 02 (TrueType)"
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "family": "思源黑体",
+      "aliases": ["SourceHanSansCN", "SourceHanSansSC", "思源黑体 CN", "NotoSansSC"],
+      "vendor": "Adobe / Google（开源 SIL OFL）",
+      "font_file": "SourceHanSansSC-Regular.otf",
+      "license": {
+        "media": ["全媒体"],
+        "subject": "不限制",
+        "valid_until": "长期",
+        "note": "示例条目：开源字体，可免费商用，无需购买"
+      }
+    },
+    {
+      "family": "示例字体甲（请替换）",
+      "aliases": ["EXAMPLE-Hei-B-GB", "EXAMPLEHeiJW--GB1-0", "EXAMPLEHeiJW"],
+      "vendor": "（填字库厂商）",
+      "font_file": "EXAMPLEHeiJW.TTF",
+      "license": {
+        "media": ["全媒体"],
+        "subject": "集团及子公司",
+        "valid_until": "2027-12-31",
+        "seats": 10,
+        "note": "示例条目：示意「已购 + 全媒体 + 有到期日 + 限台数」怎么填"
+      }
+    },
+    {
+      "family": "示例字体乙（请替换）",
+      "aliases": ["EXAMPLE-Song-R-GB"],
+      "vendor": "（填字库厂商）",
+      "font_file": "EXAMPLESongJW.TTF",
+      "license": {
+        "media": ["印刷"],
+        "subject": "仅限本单位总部",
+        "valid_until": "2026-12-31",
+        "note": "示例条目：只买了印刷授权 → 做全平台投放时会降 ⚠️，并写明缺的是哪一侧"
+      }
+    }
+  ]
+}
