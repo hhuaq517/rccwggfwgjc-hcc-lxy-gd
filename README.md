@@ -56,7 +56,7 @@
 ```
 rccwggfwgjc-hcc-lxy-gd/
 ├── README.md                        ← 本文件
-├── LICENSE                          ← MIT + 内部资料 / 字体 / 商标附注
+├── LICENSE                          ← MIT + 数据 / 字体 / 商标附注
 ├── CHANGELOG.md                     ← 变更记录 + 已知约束
 ├── requirements.txt                 ← 依赖清单（含用途注释）
 ├── 安装说明.md                       ← 面向使用者的上手说明
